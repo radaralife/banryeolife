@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://banlife.kr/sitemap.xml
+
+# 검색엔진에 친화적인 설정
+# 반려라이프 - 반려동물 전문 커머스 및 이커머스 솔루션 
