@@ -7,7 +7,7 @@
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="반려라이프는 반려동물 전문 커머스를 운영하며, 이커머스 사업자를 위한 실용적인 관리 도구를 제공합니다. 6년간의 실전 경험으로 검증된 솔루션.">
-    <meta name="keywords" content="반려동물, 펫샵, 쇼핑몰 관리도구, 이커머스, 가격계산기, 이미지최적화, 반려라이프, banryeolife">
+    <meta name="keywords" content="반려동물, 펫샵, 쇼핑몰 관리도구, 이커머스, 가격계산기, 이미지최적화, 반려라이프, banryeolife, 온라인쇼핑몰, 셀러도구, 상품관리, HTML변환, WebP변환, 도매가계산, 판매가계산, 쇼핑몰운영, 이커머스솔루션, 반려동물용품, 펫용품, 무료도구, 웹도구, 마케팅도구, 이미지압축, 상품등록, 쇼핑몰창업, 온라인판매">
     <meta name="author" content="반려라이프">
     <meta name="robots" content="index, follow">
     <meta name="language" content="Korean">
@@ -34,20 +34,59 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
     <!-- Canonical URL -->
     <link rel="canonical" href="https://banlife.kr">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="geo.region" content="KR-11">
+    <meta name="geo.placename" content="Seoul">
+    <meta name="geo.position" content="37.566535;126.9779692">
+    <meta name="ICBM" content="37.566535, 126.9779692">
+    <meta name="theme-color" content="#3498db">
+    <meta name="msapplication-TileColor" content="#3498db">
+    <meta name="msapplication-navbutton-color" content="#3498db">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <!-- DNS Prefetch for Performance -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//shoptool.kr">
+    <link rel="dns-prefetch" href="//smartstore.naver.com">
+    <link rel="dns-prefetch" href="//lottobot.site">
     
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
-    <!-- Stylesheets -->
+    <!-- Critical CSS first -->
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- Structured Data -->
+    <!-- Preload important fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"></noscript>
+    
+    <!-- Font Awesome with async loading -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+    
+    <!-- Resource hints for better performance -->
+    <link rel="prefetch" href="script.js">
+    <link rel="preload" href="script.js" as="script">
+    
+    <!-- Structured Data - Organization -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -58,11 +97,17 @@
         "logo": "https://banlife.kr/logo.png",
         "description": "반려동물 전문 커머스를 운영하며, 이커머스 사업자를 위한 실용적인 관리 도구를 제공하는 회사입니다.",
         "foundingDate": "2019",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "KR",
+            "addressRegion": "Seoul"
+        },
         "contactPoint": {
             "@type": "ContactPoint",
             "email": "info@banlife.kr",
             "contactType": "customer service",
-            "availableLanguage": "Korean"
+            "availableLanguage": "Korean",
+            "hoursAvailable": "Mo-Fr 09:00-18:00"
         },
         "sameAs": [
             "https://shoptool.kr",
@@ -93,6 +138,107 @@
         }
     }
     </script>
+    
+    <!-- Structured Data - WebSite -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "반려라이프",
+        "alternateName": "Banryeolife",
+        "url": "https://banlife.kr",
+        "description": "반려동물 전문 커머스 및 이커머스 솔루션",
+        "publisher": {
+            "@type": "Organization",
+            "name": "반려라이프",
+            "url": "https://banlife.kr"
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://banlife.kr/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    
+    <!-- Structured Data - Services -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "쇼핑몰 관리 도구",
+        "description": "이커머스 운영에 필요한 가격 계산기, 이미지 최적화, HTML 변환 등의 도구를 제공합니다.",
+        "provider": {
+            "@type": "Organization",
+            "name": "반려라이프",
+            "url": "https://banlife.kr"
+        },
+        "serviceType": "이커머스 도구",
+        "url": "https://shoptool.kr",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "KRW",
+            "availability": "https://schema.org/InStock"
+        }
+    }
+    </script>
+    
+    <!-- Structured Data - FAQ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "반려라이프의 도구들은 모두 무료인가요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "네, 반려라이프에서 제공하는 모든 쇼핑몰 관리 도구들은 100% 무료로 제공됩니다. 가격 계산기, 이미지 최적화, HTML 변환 등 모든 기능을 제한 없이 사용하실 수 있습니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "어떤 도구들을 사용할 수 있나요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "가격 계산기(도매가 기반 정확한 판매가 계산), 이미지 최적화(쇼핑몰별 맞춤 사이즈), WebP 변환(최신 이미지 포맷 일괄 변환), HTML 변환(상품 HTML 코드 정리 및 최적화) 등의 도구를 제공합니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "고객 지원은 언제 받을 수 있나요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "평일 오전 9시부터 오후 6시까지 고객 지원을 제공합니다. info@banlife.kr로 문의해 주시면 성심껏 도와드리겠습니다."
+                }
+            }
+                 ]
+     }
+     </script>
+     
+     <!-- Structured Data - BreadcrumbList -->
+     <script type="application/ld+json">
+     {
+         "@context": "https://schema.org",
+         "@type": "BreadcrumbList",
+         "itemListElement": [
+             {
+                 "@type": "ListItem",
+                 "position": 1,
+                 "name": "홈",
+                 "item": "https://banlife.kr"
+             },
+             {
+                 "@type": "ListItem",
+                 "position": 2,
+                 "name": "반려라이프 소개",
+                 "item": "https://banlife.kr/#about"
+             }
+         ]
+     }
+     </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -104,6 +250,7 @@
             <div class="nav-menu" id="nav-menu">
                 <a href="#about" class="nav-link">회사소개</a>
                 <a href="#services" class="nav-link">서비스</a>
+                <a href="#faq" class="nav-link">FAQ</a>
                 <a href="#contact" class="nav-link">연락처</a>
                 <a href="https://shoptool.kr" class="nav-link btn-primary">도구 사용하기</a>
             </div>
@@ -112,6 +259,17 @@
                 <span></span>
                 <span></span>
             </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="breadcrumb" style="background: #f8f9fa; padding: 10px 0; font-size: 14px;">
+        <div class="container">
+            <ol style="list-style: none; display: flex; margin: 0; padding: 0; align-items: center;">
+                <li><a href="https://banlife.kr" style="color: #6c757d; text-decoration: none;">홈</a></li>
+                <li style="margin: 0 8px; color: #6c757d;">/</li>
+                <li style="color: #495057; font-weight: 500;">반려라이프 소개</li>
+            </ol>
         </div>
     </nav>
 
@@ -416,6 +574,53 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section id="faq" class="faq" style="padding: 80px 0; background: #f8f9fa;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">자주 묻는 질문</h2>
+                <p class="section-subtitle">반려라이프에 대해 궁금한 점들을 확인해보세요</p>
+            </div>
+            <div class="faq-content" style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item" style="background: white; margin-bottom: 20px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <div class="faq-question" style="padding: 25px; background: #3498db; color: white; font-weight: 500; font-size: 18px; cursor: pointer;">
+                        <h3 style="margin: 0; display: flex; justify-content: space-between; align-items: center;">
+                            반려라이프의 도구들은 모두 무료인가요?
+                            <i class="fas fa-chevron-down" style="transition: transform 0.3s;"></i>
+                        </h3>
+                    </div>
+                    <div class="faq-answer" style="padding: 25px; color: #555; line-height: 1.6;">
+                        <p>네, 반려라이프에서 제공하는 모든 쇼핑몰 관리 도구들은 100% 무료로 제공됩니다. 가격 계산기, 이미지 최적화, HTML 변환 등 모든 기능을 제한 없이 사용하실 수 있습니다.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" style="background: white; margin-bottom: 20px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <div class="faq-question" style="padding: 25px; background: #3498db; color: white; font-weight: 500; font-size: 18px; cursor: pointer;">
+                        <h3 style="margin: 0; display: flex; justify-content: space-between; align-items: center;">
+                            어떤 도구들을 사용할 수 있나요?
+                            <i class="fas fa-chevron-down" style="transition: transform 0.3s;"></i>
+                        </h3>
+                    </div>
+                    <div class="faq-answer" style="padding: 25px; color: #555; line-height: 1.6;">
+                        <p>가격 계산기(도매가 기반 정확한 판매가 계산), 이미지 최적화(쇼핑몰별 맞춤 사이즈), WebP 변환(최신 이미지 포맷 일괄 변환), HTML 변환(상품 HTML 코드 정리 및 최적화) 등의 도구를 제공합니다. 모든 도구는 <a href="https://shoptool.kr" style="color: #3498db; text-decoration: none;">shoptool.kr</a>에서 사용하실 수 있습니다.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" style="background: white; margin-bottom: 20px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <div class="faq-question" style="padding: 25px; background: #3498db; color: white; font-weight: 500; font-size: 18px; cursor: pointer;">
+                        <h3 style="margin: 0; display: flex; justify-content: space-between; align-items: center;">
+                            고객 지원은 언제 받을 수 있나요?
+                            <i class="fas fa-chevron-down" style="transition: transform 0.3s;"></i>
+                        </h3>
+                    </div>
+                    <div class="faq-answer" style="padding: 25px; color: #555; line-height: 1.6;">
+                        <p>평일 오전 9시부터 오후 6시까지 고객 지원을 제공합니다. <a href="mailto:info@banlife.kr" style="color: #3498db; text-decoration: none;">info@banlife.kr</a>로 문의해 주시면 성심껏 도와드리겠습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
@@ -500,6 +705,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html> 
