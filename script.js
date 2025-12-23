@@ -48,7 +48,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Intersection Observer for animations
+    // Observe sections for animations
+    const sections = document.querySelectorAll('section');
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -57,34 +58,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('visible');
             }
         });
     }, observerOptions);
 
-    // Observe sections for animations
-    const sections = document.querySelectorAll('section');
     sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(30px)';
-        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(section);
     });
 
-    // Hero section is always visible
-    const heroSection = document.querySelector('.hero');
-    if (heroSection) {
-        heroSection.style.opacity = '1';
-        heroSection.style.transform = 'translateY(0)';
-    }
-
-    // Add loading animation for the page
-    document.body.style.opacity = '0';
-    window.addEventListener('load', () => {
-        document.body.style.transition = 'opacity 0.5s ease';
-        document.body.style.opacity = '1';
-    });
 
     // Initialize FAQ Accordion
     initFAQ();
@@ -122,8 +104,8 @@ function initLightbox() {
     const lightboxImg = lightbox.querySelector('img');
     const closeBtn = lightbox.querySelector('.close-lightbox');
 
-    // Select images from history gallery and cat intro
-    const galleryImages = document.querySelectorAll('.history-card img, .cat-card img');
+    // Select images from history gallery, sub-images and cat intro
+    const galleryImages = document.querySelectorAll('.history-card img, .history-sub-img, .cat-card img');
 
     galleryImages.forEach(img => {
         // Make image cursor a pointer to indicate clickability
