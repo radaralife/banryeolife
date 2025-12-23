@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>반려라이프 - 반려동물 전문 커머스 및 이커머스 솔루션</title>
-    
+
     <!-- SEO Meta Tags -->
     <meta name="description" content="반려라이프는 반려동물 전문 커머스를 운영하며, 이커머스 사업자를 위한 실용적인 관리 도구를 제공합니다. 6년간의 실전 경험으로 검증된 솔루션.">
-    <meta name="keywords" content="반려동물, 펫샵, 쇼핑몰 관리도구, 이커머스, 가격계산기, 이미지최적화, 반려라이프, banryeolife, 온라인쇼핑몰, 셀러도구, 상품관리, HTML변환, WebP변환, 도매가계산, 판매가계산, 쇼핑몰운영, 이커머스솔루션, 반려동물용품, 펫용품, 무료도구, 웹도구, 마케팅도구, 이미지압축, 상품등록, 쇼핑몰창업, 온라인판매">
+    <meta name="keywords"
+        content="반려동물, 펫샵, 쇼핑몰 관리도구, 이커머스, 가격계산기, 이미지최적화, 반려라이프, banryeolife, 온라인쇼핑몰, 셀러도구, 상품관리, HTML변환, WebP변환, 도매가계산, 판매가계산, 쇼핑몰운영, 이커머스솔루션, 반려동물용품, 펫용품, 무료도구, 웹도구, 마케팅도구, 이미지압축, 상품등록, 쇼핑몰창업, 온라인판매">
     <meta name="author" content="반려라이프">
     <meta name="robots" content="index, follow">
     <meta name="language" content="Korean">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://banlife.kr">
@@ -20,26 +22,24 @@
     <meta property="og:image" content="https://banlife.kr/og-image.jpg">
     <meta property="og:site_name" content="반려라이프">
     <meta property="og:locale" content="ko_KR">
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://banlife.kr">
     <meta property="twitter:title" content="반려라이프 - 반려동물 전문 커머스 및 이커머스 솔루션">
     <meta property="twitter:description" content="반려동물 전문 커머스를 운영하며, 이커머스 사업자를 위한 실용적인 관리 도구를 제공합니다.">
     <meta property="twitter:image" content="https://banlife.kr/og-image.jpg">
-    
+
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json">
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://banlife.kr">
-    
+
     <!-- Additional SEO Meta Tags -->
     <meta name="geo.region" content="KR-11">
     <meta name="geo.placename" content="Seoul">
@@ -51,13 +51,13 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-    
+
     <!-- Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    
+
     <!-- DNS Prefetch for Performance -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -65,27 +65,34 @@
     <link rel="dns-prefetch" href="//shoptool.kr">
     <link rel="dns-prefetch" href="//smartstore.naver.com">
     <link rel="dns-prefetch" href="//lottobot.site">
-    
+
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    
+
     <!-- Critical CSS first -->
     <link rel="stylesheet" href="styles.css">
-    
+
     <!-- Preload important fonts -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"></noscript>
-    
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap">
+    </noscript>
+
     <!-- Font Awesome with async loading -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
-    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </noscript>
+
     <!-- Resource hints for better performance -->
     <link rel="prefetch" href="script.js">
     <link rel="preload" href="script.js" as="script">
-    
+
     <!-- Structured Data - Organization -->
     <script type="application/ld+json">
     {
@@ -138,7 +145,7 @@
         }
     }
     </script>
-    
+
     <!-- Structured Data - WebSite -->
     <script type="application/ld+json">
     {
@@ -160,7 +167,7 @@
         }
     }
     </script>
-    
+
     <!-- Structured Data - Services -->
     <script type="application/ld+json">
     {
@@ -183,7 +190,7 @@
         }
     }
     </script>
-    
+
     <!-- Structured Data - FAQ -->
     <script type="application/ld+json">
     {
@@ -217,9 +224,9 @@
                  ]
      }
      </script>
-     
-     <!-- Structured Data - BreadcrumbList -->
-     <script type="application/ld+json">
+
+    <!-- Structured Data - BreadcrumbList -->
+    <script type="application/ld+json">
      {
          "@context": "https://schema.org",
          "@type": "BreadcrumbList",
@@ -240,11 +247,13 @@
      }
      </script>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
+                <img src="logo.png" alt="반려라이프 로고" style="height: 40px; width: auto;">
                 <span class="brand-name">반려라이프</span>
             </div>
             <div class="nav-menu" id="nav-menu">
@@ -252,7 +261,8 @@
                 <a href="#services" class="nav-link">서비스</a>
                 <a href="#faq" class="nav-link">FAQ</a>
                 <a href="#contact" class="nav-link">연락처</a>
-                <a href="https://shoptool.kr" class="nav-link btn-primary">도구 사용하기</a>
+                <a href="https://shoptool.kr" class="nav-link btn-primary" target="_blank" rel="noopener noreferrer">도구
+                    사용하기</a>
             </div>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -281,7 +291,7 @@
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    당신의 <span class="highlight">이커머스</span>에<br>
+                    <span class="highlight">이커머스</span>에<br>
                     실용적인 가치를 더하는<br>
                     <strong>반려라이프</strong>입니다.
                 </h1>
@@ -291,7 +301,8 @@
                 </p>
                 <div class="hero-cta">
                     <a href="#about" class="btn btn-primary">회사 소개 보기</a>
-                    <a href="https://shoptool.kr" class="btn btn-secondary">도구 체험하기</a>
+                    <a href="https://shoptool.kr" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">도구
+                        체험하기</a>
                 </div>
             </div>
             <div class="hero-stats">
@@ -329,18 +340,18 @@
                         모든 사업자들과 공유합니다."
                     </div>
                     <p>
-                        저희 반려라이프(Banryeolife)는 2019년부터 반려동물 전문 커머스를 운영해오며 
+                        저희 반려라이프(Banryeolife)는 2019년부터 반려동물 전문 커머스를 운영해오며
                         축적한 실전 경험을 바탕으로 쇼핑몰 관리 도구 플랫폼을 개발했습니다.
                     </p>
                     <p>
-                        상품 가격 계산의 복잡함, 이미지 처리의 번거로움, 반복적인 HTML 작업의 비효율성... 
-                        이런 일상적인 불편함들을 해결하기 위해 하나씩 만들어낸 도구들이 
+                        상품 가격 계산의 복잡함, 이미지 처리의 번거로움, 반복적인 HTML 작업의 비효율성...
+                        이런 일상적인 불편함들을 해결하기 위해 하나씩 만들어낸 도구들이
                         지금의 쇼핑몰 관리 도구가 되었습니다.
                     </p>
                     <div class="mission">
                         <h3>우리의 미션</h3>
                         <p>
-                            모든 이커머스 사업자가 복잡한 업무에 시간을 빼앗기지 않고, 
+                            모든 이커머스 사업자가 복잡한 업무에 시간을 빼앗기지 않고,
                             정말 중요한 고객 서비스와 사업 성장에 집중할 수 있도록 돕는 것입니다.
                         </p>
                     </div>
@@ -432,7 +443,8 @@
             <div class="section-header">
                 <h2 class="section-title">우리의 서비스</h2>
                 <p class="section-subtitle">실전에서 필요한 도구들을 만들고 공유합니다<br>
-                <span style="color: #3498db; font-weight: 500;">더 많은 혁신적인 서비스들이 곧 출시될 예정입니다</span></p>
+                    <span style="color: #3498db; font-weight: 500;">더 많은 혁신적인 서비스들이 곧 출시될 예정입니다</span>
+                </p>
             </div>
             <div class="services-grid">
                 <div class="service-card main-service">
@@ -448,7 +460,8 @@
                         <li>전문 상담 및 고객 지원</li>
                         <li>6년간 축적된 노하우와 신뢰</li>
                     </ul>
-                    <a href="https://smartstore.naver.com/radara" class="service-link main-link">스토어 방문하기</a>
+                    <a href="https://smartstore.naver.com/radara" class="service-link main-link" target="_blank"
+                        rel="noopener noreferrer">스토어 방문하기</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -462,7 +475,8 @@
                         <li>WebP 변환 - 최신 이미지 포맷 일괄 변환</li>
                         <li>HTML 변환 - 상품 HTML 코드 정리 및 최적화</li>
                     </ul>
-                    <a href="https://shoptool.kr" class="service-link">도구 사용하기</a>
+                    <a href="https://shoptool.kr" class="service-link" target="_blank" rel="noopener noreferrer">도구
+                        사용하기</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -476,7 +490,8 @@
                         <li>과거 당첨 번호 아카이브</li>
                         <li>참고용 번호 추천 서비스</li>
                     </ul>
-                    <a href="https://lottobot.site" class="service-link">서비스 이용하기</a>
+                    <a href="https://lottobot.site" class="service-link" target="_blank" rel="noopener noreferrer">서비스
+                        이용하기</a>
                 </div>
                 <div class="service-card coming-soon">
                     <div class="service-icon">
@@ -582,39 +597,51 @@
                 <p class="section-subtitle">반려라이프에 대해 궁금한 점들을 확인해보세요</p>
             </div>
             <div class="faq-content" style="max-width: 800px; margin: 0 auto;">
-                <div class="faq-item" style="background: white; margin-bottom: 20px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                    <div class="faq-question" style="padding: 25px; background: #3498db; color: white; font-weight: 500; font-size: 18px; cursor: pointer;">
+                <div class="faq-item"
+                    style="background: white; margin-bottom: 20px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <div class="faq-question"
+                        style="padding: 25px; background: #3498db; color: white; font-weight: 500; font-size: 18px; cursor: pointer;">
                         <h3 style="margin: 0; display: flex; justify-content: space-between; align-items: center;">
                             반려라이프의 도구들은 모두 무료인가요?
                             <i class="fas fa-chevron-down" style="transition: transform 0.3s;"></i>
                         </h3>
                     </div>
                     <div class="faq-answer" style="padding: 25px; color: #555; line-height: 1.6;">
-                        <p>네, 반려라이프에서 제공하는 모든 쇼핑몰 관리 도구들은 100% 무료로 제공됩니다. 가격 계산기, 이미지 최적화, HTML 변환 등 모든 기능을 제한 없이 사용하실 수 있습니다.</p>
+                        <p>네, 반려라이프에서 제공하는 모든 쇼핑몰 관리 도구들은 100% 무료로 제공됩니다. 가격 계산기, 이미지 최적화, HTML 변환 등 모든 기능을 제한 없이 사용하실 수
+                            있습니다.</p>
                     </div>
                 </div>
-                
-                <div class="faq-item" style="background: white; margin-bottom: 20px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                    <div class="faq-question" style="padding: 25px; background: #3498db; color: white; font-weight: 500; font-size: 18px; cursor: pointer;">
+
+                <div class="faq-item"
+                    style="background: white; margin-bottom: 20px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <div class="faq-question"
+                        style="padding: 25px; background: #3498db; color: white; font-weight: 500; font-size: 18px; cursor: pointer;">
                         <h3 style="margin: 0; display: flex; justify-content: space-between; align-items: center;">
                             어떤 도구들을 사용할 수 있나요?
                             <i class="fas fa-chevron-down" style="transition: transform 0.3s;"></i>
                         </h3>
                     </div>
                     <div class="faq-answer" style="padding: 25px; color: #555; line-height: 1.6;">
-                        <p>가격 계산기(도매가 기반 정확한 판매가 계산), 이미지 최적화(쇼핑몰별 맞춤 사이즈), WebP 변환(최신 이미지 포맷 일괄 변환), HTML 변환(상품 HTML 코드 정리 및 최적화) 등의 도구를 제공합니다. 모든 도구는 <a href="https://shoptool.kr" style="color: #3498db; text-decoration: none;">shoptool.kr</a>에서 사용하실 수 있습니다.</p>
+                        <p>가격 계산기(도매가 기반 정확한 판매가 계산), 이미지 최적화(쇼핑몰별 맞춤 사이즈), WebP 변환(최신 이미지 포맷 일괄 변환), HTML 변환(상품 HTML 코드
+                            정리 및 최적화) 등의 도구를 제공합니다. 모든 도구는 <a href="https://shoptool.kr"
+                                style="color: #3498db; text-decoration: none;" target="_blank"
+                                rel="noopener noreferrer">shoptool.kr</a>에서 사용하실 수 있습니다.</p>
                     </div>
                 </div>
-                
-                <div class="faq-item" style="background: white; margin-bottom: 20px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                    <div class="faq-question" style="padding: 25px; background: #3498db; color: white; font-weight: 500; font-size: 18px; cursor: pointer;">
+
+                <div class="faq-item"
+                    style="background: white; margin-bottom: 20px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <div class="faq-question"
+                        style="padding: 25px; background: #3498db; color: white; font-weight: 500; font-size: 18px; cursor: pointer;">
                         <h3 style="margin: 0; display: flex; justify-content: space-between; align-items: center;">
                             고객 지원은 언제 받을 수 있나요?
                             <i class="fas fa-chevron-down" style="transition: transform 0.3s;"></i>
                         </h3>
                     </div>
                     <div class="faq-answer" style="padding: 25px; color: #555; line-height: 1.6;">
-                        <p>평일 오전 9시부터 오후 6시까지 고객 지원을 제공합니다. <a href="mailto:info@banlife.kr" style="color: #3498db; text-decoration: none;">info@banlife.kr</a>로 문의해 주시면 성심껏 도와드리겠습니다.</p>
+                        <p>평일 오전 9시부터 오후 6시까지 고객 지원을 제공합니다. <a href="mailto:info@banlife.kr"
+                                style="color: #3498db; text-decoration: none;">info@banlife.kr</a>로 문의해 주시면 성심껏
+                            도와드리겠습니다.</p>
                     </div>
                 </div>
             </div>
@@ -628,7 +655,7 @@
                 <div class="contact-info">
                     <h2>함께 성장하는 파트너가 되어주세요</h2>
                     <p>저희 반려라이프와 함께 더 효율적인 이커머스 운영을 시작해보세요. 언제든 문의해 주시면 성심껏 도와드리겠습니다.</p>
-                    
+
                     <div class="contact-methods">
                         <div class="contact-method">
                             <div class="method-icon">
@@ -637,7 +664,7 @@
                             <div class="method-info">
                                 <h4>이메일 문의</h4>
                                 <p>info@banlife.kr</p>
-                                                        </div>
+                            </div>
                         </div>
                         <div class="contact-method">
                             <div class="method-icon">
@@ -660,25 +687,29 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-brand">
-                        <span class="footer-brand-name">반려라이프</span>
+                        <img src="logo.png" alt="반려라이프 로고"
+                            style="height: 30px; width: auto; margin-right: 8px; vertical-align: middle;">
+                        <span class="footer-brand-name"
+                            style="display: inline; vertical-align: middle; margin-bottom: 0;">반려라이프</span>
                     </div>
                     <p>이커머스 운영을 위한 통합 도구 플랫폼입니다. 모든 도구를 무료로 제공합니다.</p>
                 </div>
                 <div class="footer-section">
                     <h4>도구</h4>
                     <ul>
-                        <li><a href="https://shoptool.kr">가격 계산기</a></li>
-                        <li><a href="https://shoptool.kr">이미지 최적화</a></li>
-                        <li><a href="https://shoptool.kr">WebP 변환</a></li>
-                        <li><a href="https://shoptool.kr">HTML 변환</a></li>
+                        <li><a href="https://shoptool.kr" target="_blank" rel="noopener noreferrer">가격 계산기</a></li>
+                        <li><a href="https://shoptool.kr" target="_blank" rel="noopener noreferrer">이미지 최적화</a></li>
+                        <li><a href="https://shoptool.kr" target="_blank" rel="noopener noreferrer">WebP 변환</a></li>
+                        <li><a href="https://shoptool.kr" target="_blank" rel="noopener noreferrer">HTML 변환</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>서비스</h4>
                     <ul>
-                        <li><a href="https://shoptool.kr">쇼핑몰 도구</a></li>
-                        <li><a href="https://smartstore.naver.com/radara">반려동물 쇼핑몰</a></li>
-                        <li><a href="https://lottobot.site">AI 로또봇</a></li>
+                        <li><a href="https://shoptool.kr" target="_blank" rel="noopener noreferrer">쇼핑몰 도구</a></li>
+                        <li><a href="https://smartstore.naver.com/radara" target="_blank" rel="noopener noreferrer">반려동물
+                                쇼핑몰</a></li>
+                        <li><a href="https://lottobot.site" target="_blank" rel="noopener noreferrer">AI 로또봇</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -707,4 +738,5 @@
 
     <script src="script.js" defer></script>
 </body>
-</html> 
+
+</html>
