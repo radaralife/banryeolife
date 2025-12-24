@@ -48,24 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Observe sections for animations
-    const sections = document.querySelectorAll('section');
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
-
-    sections.forEach(section => {
-        observer.observe(section);
-    });
 
 
     // Initialize FAQ Accordion
@@ -84,14 +67,7 @@ function initFAQ() {
             const isActive = item.classList.contains('active');
 
             // Close all other items (Accordion behavior)
-            // Uncomment the lines below if you want only one open at a time
-            /*
-            document.querySelectorAll('.faq-item').forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.classList.remove('active');
-                }
-            });
-            */
+
 
             // Toggle current item
             item.classList.toggle('active');
@@ -105,7 +81,7 @@ function initLightbox() {
     const closeBtn = lightbox.querySelector('.close-lightbox');
 
     // Select images from history gallery, sub-images and cat intro
-    const galleryImages = document.querySelectorAll('.history-card img, .history-sub-img, .cat-card img');
+    const galleryImages = document.querySelectorAll('.narrative-chapter img, .gallery-item img, .cat-card img');
 
     galleryImages.forEach(img => {
         // Make image cursor a pointer to indicate clickability

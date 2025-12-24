@@ -1,1 +1,8 @@
 assets/img/temp/
+.DS_Store
+node_modules/
+.env
+*.log
+.vscode/
+builder.html
+*.py
