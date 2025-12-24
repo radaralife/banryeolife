@@ -20,14 +20,20 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Navbar scroll effect
+    // Navbar scroll effect (enhanced)
     const navbar = document.querySelector('.navbar');
+    let lastScrollY = 0;
+
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY > 100) {
+            navbar.classList.add('scrolled');
         } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.classList.remove('scrolled');
         }
+
+        lastScrollY = currentScrollY;
     });
 
     // Smooth scrolling for anchor links
@@ -48,16 +54,18 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-
-
-
-    // Initialize FAQ Accordion
+    // Initialize all UI/UX enhancements
     initFAQ();
-
-    // Initialize Lightbox
     initLightbox();
+    initScrollAnimations();
+    initScrollProgress();
+    initBackToTop();
+    initLazyImageLoading();
 });
 
+// =========================================
+// FAQ Accordion
+// =========================================
 function initFAQ() {
     const faqQuestions = document.querySelectorAll('.faq-question');
 
@@ -66,17 +74,32 @@ function initFAQ() {
             const item = question.parentElement;
             const isActive = item.classList.contains('active');
 
-            // Close all other items (Accordion behavior)
-
+            // Optional: Close all other items (Accordion behavior)
+            // Uncomment below for single-open accordion
+            // const allItems = document.querySelectorAll('.faq-item');
+            // allItems.forEach(i => i.classList.remove('active'));
 
             // Toggle current item
             item.classList.toggle('active');
         });
+
+        // Keyboard accessibility
+        question.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                question.click();
+            }
+        });
     });
 }
 
+// =========================================
+// Lightbox for Images
+// =========================================
 function initLightbox() {
     const lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
+
     const lightboxImg = lightbox.querySelector('img');
     const closeBtn = lightbox.querySelector('.close-lightbox');
 
@@ -100,12 +123,14 @@ function initLightbox() {
             }
 
             lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
         });
     });
 
     // Close lightbox functions
     const closeLightbox = () => {
         lightbox.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
         setTimeout(() => {
             lightboxImg.setAttribute('src', '');
             lightboxImg.classList.remove('rotate-90');
@@ -126,4 +151,169 @@ function initLightbox() {
             closeLightbox();
         }
     });
+}
+
+// =========================================
+// Scroll Reveal Animations
+// =========================================
+function initScrollAnimations() {
+    // Add animation classes to elements
+    const elementsToAnimate = [
+        { selector: '.section-header', class: 'fade-in-up' },
+        { selector: '.service-card', class: 'fade-in-up' },
+        { selector: '.testimonial-card', class: 'fade-in-up' },
+        { selector: '.value-item', class: 'scale-in' },
+        { selector: '.impact-card', class: 'fade-in-up' },
+        { selector: '.principle-card', class: 'fade-in-up' },
+        { selector: '.scope-item', class: 'fade-in-up' },
+        { selector: '.partner-item', class: 'scale-in' },
+        { selector: '.cat-card', class: 'scale-in' },
+        { selector: '.gallery-item', class: 'fade-in-up' },
+        { selector: '.faq-item', class: 'fade-in-up' },
+        { selector: '.contact-card', class: 'fade-in-up' },
+        { selector: '.stat-card', class: 'scale-in' },
+        { selector: '.narrative-chapter', class: 'fade-in-up' },
+        { selector: '.about-hero', class: 'fade-in-up' },
+        { selector: '.brand-story', class: 'fade-in-up' },
+        { selector: '.strengths-gallery', class: 'fade-in-up' },
+    ];
+
+    // Add classes to elements
+    elementsToAnimate.forEach(({ selector, class: animClass }) => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach((el, index) => {
+            if (!el.classList.contains(animClass)) {
+                el.classList.add(animClass);
+                // Add stagger delay for grouped elements
+                if (elements.length > 1 && index < 6) {
+                    el.classList.add(`stagger-${index + 1}`);
+                }
+            }
+        });
+    });
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+
+    const animationObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Optionally unobserve after animation
+                // animationObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe all animation elements
+    const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .scale-in');
+    animatedElements.forEach(el => {
+        animationObserver.observe(el);
+    });
+}
+
+// =========================================
+// Scroll Progress Indicator
+// =========================================
+function initScrollProgress() {
+    // Create progress bar element
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    document.body.appendChild(progressBar);
+
+    // Update progress on scroll
+    window.addEventListener('scroll', () => {
+        const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrolled = (window.scrollY / windowHeight) * 100;
+        progressBar.style.width = `${Math.min(scrolled, 100)}%`;
+    });
+}
+
+// =========================================
+// Back to Top Button
+// =========================================
+function initBackToTop() {
+    // Create button element
+    const backToTopBtn = document.createElement('button');
+    backToTopBtn.className = 'back-to-top';
+    backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    backToTopBtn.setAttribute('aria-label', '맨 위로 이동');
+    backToTopBtn.setAttribute('title', '맨 위로');
+    document.body.appendChild(backToTopBtn);
+
+    // Show/hide based on scroll position
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top on click
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// =========================================
+// Lazy Image Loading Enhancement
+// =========================================
+function initLazyImageLoading() {
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+
+    lazyImages.forEach(img => {
+        // Mark as loaded when complete
+        if (img.complete) {
+            img.classList.add('loaded');
+        } else {
+            img.addEventListener('load', () => {
+                img.classList.add('loaded');
+            });
+
+            img.addEventListener('error', () => {
+                // Handle broken images gracefully
+                img.style.opacity = '0.5';
+                console.warn('Image failed to load:', img.src);
+            });
+        }
+    });
+}
+
+// =========================================
+// Utility: Debounce function
+// =========================================
+function debounce(func, wait = 20, immediate = false) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            timeout = null;
+            if (!immediate) func.apply(this, args);
+        };
+        const callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(this, args);
+    };
+}
+
+// =========================================
+// Utility: Throttle function
+// =========================================
+function throttle(func, limit = 100) {
+    let inThrottle;
+    return function (...args) {
+        if (!inThrottle) {
+            func.apply(this, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
 }

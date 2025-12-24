@@ -477,11 +477,12 @@ section {
 }
 
 .service-card.main-service {
-    background: linear-gradient(135deg, #fff8f0 0%, #ffffff 100%);
+    background: white;
     border: 2px solid #ff6b35;
-    box-shadow: 0 15px 40px rgba(255, 107, 53, 0.2);
+    box-shadow: 0 15px 40px rgba(255, 107, 53, 0.15);
     position: relative;
     order: -1;
+    transition: all 0.3s ease;
 }
 
 .service-card.main-service::before {
@@ -491,10 +492,11 @@ section {
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg, #ff6b35, #f7931e, #ff6b35);
+    background: linear-gradient(45deg, #ff6b35, #f7931e, #ffb347, #ff6b35);
+    background-size: 300% 300%;
     border-radius: 22px;
     z-index: -1;
-    animation: borderGlow 3s linear infinite;
+    animation: borderGlow 3s ease infinite;
 }
 
 .service-card.main-service .service-icon {
@@ -535,6 +537,25 @@ section {
 .service-link.main-link:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(255, 107, 53, 0.6);
+}
+
+.service-card.main-service:hover {
+    background: linear-gradient(135deg, #ffdac9 0%, #ffede5 50%, #ffffff 100%);
+    box-shadow: 0 25px 60px rgba(255, 107, 53, 0.3), 0 10px 20px rgba(255, 107, 53, 0.15);
+    transform: translateY(-12px);
+}
+
+.service-card.main-service:hover h3 {
+    color: #b55a16;
+}
+
+.service-card.main-service:hover p {
+    color: #6d360f;
+}
+
+.service-card.main-service:hover .service-features li {
+    color: #2c3e50;
+    font-weight: 500;
 }
 
 @keyframes borderGlow {
@@ -2101,33 +2122,120 @@ li {
 }
 
 /* Sub-timeline node styles for subdivided years */
-.sub-timeline-node {
-    margin-top: 40px;
-    padding-left: 20px;
-    border-left: 2px dashed #e0e0e0;
-    margin-left: 10px;
-    /* Align with year marker if possible, essentially indented */
+/* Sub-timeline node styles for subdivided years */
+/* Generalize grid styles for reusability inside chapter-visuals */
+.visual-grid {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 15px;
 }
 
-.sub-node-title {
+.visual-grid.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 120px);
+}
+
+.visual-grid.grid-3 img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.visual-grid.grid-3 img:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.visual-grid.grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.visual-grid.grid-4 img {
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Helper for sub-titles in content */
+.content-sub-title {
     font-size: 1.1rem;
     font-weight: 700;
     color: #555;
-    margin-bottom: 15px;
-    position: relative;
-    padding-left: 15px;
+    margin-top: 25px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.sub-node-title::before {
+.content-sub-title::before {
     content: '';
-    position: absolute;
-    left: -26px;
-    /* On the dashed line */
-    top: 6px;
-    width: 10px;
-    height: 10px;
-    background: #bbb;
-    border-radius: 50%;
+    display: block;
+    width: 4px;
+    height: 16px;
+    background: #3498db;
+    border-radius: 2px;
+}
+
+/* .narrative-chapter.reverse .content-sub-title and ::before removed for left alignment */
+
+.content-sub-desc {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 0;
+}
+
+/* System Narrative (Final Evolution) */
+.narrative-chapter.step-gyeol .chapter-year {
+    background: linear-gradient(135deg, #00b4d8, #0077b6);
+}
+
+.narrative-chapter.step-gyeol::before {
+    border-color: #00b4d8;
+    background: #00b4d8;
+    box-shadow: 0 0 15px rgba(0, 180, 216, 0.5);
+}
+
+.system-feature-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.system-feature-tags .tag {
+    background: #f0f7ff;
+    color: #0077b6;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(0, 119, 182, 0.1);
+    transition: all 0.3s ease;
+}
+
+.system-feature-tags .tag i {
+    font-size: 0.9rem;
+}
+
+.system-feature-tags .tag:hover {
+    background: #0077b6;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 119, 182, 0.2);
+}
+
+@media (max-width: 768px) {
+    .system-feature-tags {
+        justify-content: flex-start;
+    }
 }
 
 
@@ -2571,4 +2679,735 @@ li {
     .gallery-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* =========================================
+   Refactored Utility Classes (2025 Cleanup)
+   ========================================= */
+
+.brand-logo {
+    height: 40px;
+    width: auto;
+}
+
+/* Breadcrumb */
+.breadcrumb-nav {
+    background: #f8f9fa;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+.breadcrumb-list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.breadcrumb-link {
+    color: #6c757d;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.breadcrumb-link:hover {
+    color: #3498db;
+    text-decoration: underline;
+}
+
+.breadcrumb-separator {
+    margin: 0 8px;
+    color: #6c757d;
+}
+
+.breadcrumb-current {
+    color: #495057;
+    font-weight: 500;
+}
+
+/* Layout Utilities */
+.about-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    margin-bottom: 60px;
+    align-items: center;
+}
+
+.mb-20 {
+    margin-bottom: 20px !important;
+}
+
+/* Text Color Utilities */
+.text-orange {
+    color: #ff6b35 !important;
+}
+
+.text-purple {
+    color: #9b59b6 !important;
+}
+
+.text-blue {
+    color: #3498db !important;
+}
+
+.text-green {
+    color: #2ecc71 !important;
+}
+
+.text-red {
+    color: #e2001a !important;
+}
+
+.text-brown {
+    color: #5c4033 !important;
+}
+
+.text-dark-green {
+    color: #2c5530 !important;
+}
+
+.text-dark-orange {
+    color: #e85a1e !important;
+}
+
+/* Business Scope Specifics */
+.scope-icon.orange {
+    color: #ff6b35;
+}
+
+.scope-icon.blue {
+    color: #3498db;
+}
+
+.scope-icon.purple {
+    color: #9b59b6;
+}
+
+.scope-link.orange {
+    color: #ff6b35;
+}
+
+.scope-link.blue {
+    color: #3498db;
+}
+
+.scope-link.purple {
+    color: #9b59b6;
+}
+
+/* Values Section Premium Cards */
+.value-card-premium {
+    padding: 0 !important;
+    /* Override .value-item padding */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.value-card-img-wrapper {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.value-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+.value-card-premium:hover .value-card-img {
+    transform: scale(1.1);
+}
+
+.value-card-content {
+    padding: 30px;
+    flex: 1;
+    background: white;
+}
+
+.value-card-title {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Centered */
+    gap: 10px;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.values-grid-large {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+    gap: 30px;
+}
+
+/* =========================================
+   Section Header Styles (Restored)
+   ========================================= */
+.section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    padding: 0 1rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    max-width: 700px;
+    margin: 0 auto;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-header {
+        margin-bottom: 2.5rem;
+    }
+}
+
+/* =========================================
+   UI/UX Enhancement Styles (2024-12-24)
+   ========================================= */
+
+/* --- Scroll Reveal Animations --- */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.scale-in.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Staggered animation delays */
+.stagger-1 {
+    transition-delay: 0.1s;
+}
+
+.stagger-2 {
+    transition-delay: 0.2s;
+}
+
+.stagger-3 {
+    transition-delay: 0.3s;
+}
+
+.stagger-4 {
+    transition-delay: 0.4s;
+}
+
+.stagger-5 {
+    transition-delay: 0.5s;
+}
+
+.stagger-6 {
+    transition-delay: 0.6s;
+}
+
+/* --- Section Dividers --- */
+.section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.3), transparent);
+    margin: 0;
+}
+
+.section-divider-wave {
+    width: 100%;
+    height: 60px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%23f8f9fa' d='M0,50 C360,100 1080,0 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E") no-repeat center;
+    background-size: cover;
+    margin-top: -1px;
+}
+
+/* --- Enhanced Button Styles --- */
+.btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* Glowing button effect */
+.btn-glow {
+    box-shadow: 0 4px 20px rgba(52, 152, 219, 0.4);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 4px 20px rgba(52, 152, 219, 0.4);
+    }
+
+    to {
+        box-shadow: 0 4px 30px rgba(52, 152, 219, 0.6);
+    }
+}
+
+/* --- Enhanced Card Hover Effects --- */
+.service-card,
+.testimonial-card,
+.value-item,
+.scope-item,
+.partner-item,
+.contact-card {
+    will-change: transform, box-shadow;
+    backface-visibility: hidden;
+}
+
+/* Card shine effect on hover */
+.service-card::after,
+.testimonial-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent);
+    transition: left 0.5s ease;
+    pointer-events: none;
+}
+
+.service-card:hover::after,
+.testimonial-card:hover::after {
+    left: 100%;
+}
+
+/* --- Improved Typography --- */
+.section-title {
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.hero-title {
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Focus Styles for Accessibility --- */
+.btn:focus-visible,
+.nav-link:focus-visible,
+.faq-question:focus-visible,
+a:focus-visible {
+    outline: 3px solid rgba(52, 152, 219, 0.5);
+    outline-offset: 3px;
+}
+
+/* --- Loading/Skeleton States --- */
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* --- Smooth Image Loading --- */
+img {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+img[loading="lazy"] {
+    opacity: 0;
+}
+
+img[loading="lazy"].loaded,
+img[loading="lazy"]:not([src=""]) {
+    opacity: 1;
+}
+
+/* --- Navbar Enhancement --- */
+.navbar {
+    transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
+    padding: 0.7rem 0;
+}
+
+.navbar.scrolled .brand-name {
+    font-size: 1.3rem;
+}
+
+/* --- Hero Section Polish --- */
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.1), transparent);
+    pointer-events: none;
+}
+
+/* Floating animation for hero elements */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.hero-content .btn-primary {
+    animation: float 3s ease-in-out infinite;
+    animation-delay: 0.5s;
+}
+
+.hero-content .btn-secondary {
+    animation: float 3s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+/* --- Stats Section Counter Animation --- */
+.stat-number {
+    display: inline-block;
+}
+
+/* --- FAQ Interaction Enhancement --- */
+.faq-question {
+    transition: background 0.3s ease, padding-left 0.3s ease;
+}
+
+.faq-question:hover {
+    background: rgba(52, 152, 219, 0.03);
+    padding-left: 35px;
+}
+
+.faq-item.active .faq-question {
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.05), rgba(155, 89, 182, 0.03));
+}
+
+/* --- Tooltip Styles --- */
+[data-tooltip] {
+    position: relative;
+    cursor: help;
+}
+
+[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-5px);
+    padding: 8px 12px;
+    background: rgba(44, 62, 80, 0.95);
+    color: white;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+    z-index: 1000;
+}
+
+[data-tooltip]:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-10px);
+}
+
+/* --- Progress Bar (scroll indicator) --- */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #3498db, #9b59b6, #ff6b35);
+    z-index: 9999;
+    transition: width 0.1s ease;
+}
+
+/* --- Back to Top Button --- */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background 0.3s;
+    box-shadow: 0 4px 20px rgba(52, 152, 219, 0.4);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: linear-gradient(135deg, #2980b9, #1a5276);
+    transform: translateY(-5px);
+}
+
+.back-to-top i {
+    font-size: 1.2rem;
+}
+
+/* --- Text Selection Style --- */
+::selection {
+    background: rgba(52, 152, 219, 0.3);
+    color: #2c3e50;
+}
+
+::-moz-selection {
+    background: rgba(52, 152, 219, 0.3);
+    color: #2c3e50;
+}
+
+/* --- Smooth anchor scroll offset --- */
+:target::before {
+    content: "";
+    display: block;
+    height: 80px;
+    margin-top: -80px;
+}
+
+/* --- Image Gallery Hover Effects --- */
+.gallery-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item img {
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* --- Cat Card Enhancement --- */
+.cat-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cat-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.cat-card-overlay {
+    transition: background 0.3s ease, padding 0.3s ease;
+}
+
+.cat-card:hover .cat-card-overlay {
+    padding: 25px 15px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+}
+
+/* --- Partner Logo Hover --- */
+.partner-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.partner-item:hover {
+    border-color: rgba(52, 152, 219, 0.3);
+    box-shadow: 0 10px 30px rgba(52, 152, 219, 0.15);
+}
+
+/* --- Timeline Enhancement --- */
+.tp-item {
+    transition: transform 0.3s ease;
+}
+
+.tp-item:hover {
+    transform: translateX(5px);
+}
+
+.narrative-chapter {
+    transition: transform 0.3s ease;
+}
+
+.narrative-chapter:hover {
+    transform: scale(1.01);
+}
+
+/* --- Mobile Touch Improvements --- */
+@media (max-width: 768px) {
+    .btn {
+        padding: 1.2rem 2rem;
+        min-height: 48px;
+        /* Touch target size */
+    }
+
+    .nav-link {
+        padding: 12px 16px;
+        min-height: 44px;
+    }
+
+    .faq-question {
+        padding: 20px 25px;
+        min-height: 60px;
+    }
+
+    .contact-card {
+        padding: 30px 25px;
+    }
+
+    /* Disable hover animations on touch devices */
+    .service-card:hover,
+    .testimonial-card:hover,
+    .gallery-item:hover {
+        transform: none;
+    }
+
+    /* Floating animation disabled on mobile for performance */
+    .hero-content .btn-primary,
+    .hero-content .btn-secondary {
+        animation: none;
+    }
+
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* --- Print Styles --- */
+@media print {
+
+    .navbar,
+    .back-to-top,
+    .scroll-progress,
+    .hero-cta,
+    #lightbox {
+        display: none !important;
+    }
+
+    section {
+        page-break-inside: avoid;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 2rem 0;
+        background: #667eea !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+
+/* --- Dark Mode Support (future-ready) --- */
+@media (prefers-color-scheme: dark) {
+    /* Will activate when dark mode is implemented */
 }
